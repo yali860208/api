@@ -5,6 +5,10 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
+@app.route('/test', methods=['GET'])
+def getResult():
+    result = model.sum_unblendedcost(610810069647)
+    return result
 
 @app.route('/cost', methods=['POST'])
 def usageaccountid_to_unblendedcost():
