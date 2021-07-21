@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 import psycopg2
 from config import config
 import json
