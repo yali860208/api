@@ -1,15 +1,10 @@
 # -*- coding: UTF-8 -*-
-import app.model as model
-
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/')
-def index():
-    return 'hello!!'
 
 @app.route('/cost', methods=['POST'])
 def usageaccountid_to_unblendedcost():
