@@ -6,23 +6,36 @@ from app import model
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/test', methods=['GET'])
-def getResult():
-    result = model.sum_unblendedcost(610810069647)
+@app.route('/test', methods=['POST'])
+def test_cost():
+    # 取得前端傳過來的數值
+    input_id = request.get_json()
+    result = model.sum_unblendedcost(959256351448)
     return result
+
+@app.route('/predict', methods=['POST'])
+def predict_cost_amount():
+    # 取得前端傳過來的數值
+    input_id = request.get_json()
+    output_id = {}
+    cost = model.sum_unblendedcost(int(input_id['uid_cost']))
+    amount = model.sum_usageamount(int(input_id['uid_amount']))
+    output_id['unblendedcost'] = cost
+    output_id['usageamount'] = amount
+    return output_id
 
 @app.route('/cost', methods=['POST'])
 def usageaccountid_to_unblendedcost():
     # 取得前端傳過來的數值
     input_id = request.get_json()
-    result = model.sum_unblendedcost(input_id['uid_count'])
+    result = model.sum_unblendedcost(int(input_id['uid_cost']))
     return result
 
 @app.route('/amount', methods=['POST'])
 def usageaccountid_to_usageamount():
     # 取得前端傳過來的數值
     input_id = request.get_json()
-    result = model.sum_usageamount(input_id['uid_amount'])
+    result = model.sum_usageamount(int(input_id['uid_amount']))
     return result
 
 

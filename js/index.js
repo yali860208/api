@@ -22,8 +22,12 @@ function submit(){
 
     const data = {
         'uid_cost': uid_cost,
-        'uid_amount': uid_amount
+        'uid_amount': uid_amount,
     }
 
-    console.log(data);
+    postData('http://192.168.39.158:3000/predict', data)
+    .then(data=>{
+        console.log(data);
+    })
+
 }

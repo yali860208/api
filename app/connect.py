@@ -1,5 +1,5 @@
 import psycopg2
-from config import config
+from model.config import config
 
 def connect():
     """ Connect to the PostgreSQL database server """
@@ -57,7 +57,7 @@ def create_tables():
 
         cur.execute('''
             COPY outputs
-            FROM 'app/data.csv'
+            FROM 'data.csv'
             DELIMITER ','
             CSV HEADER''')
         print('copy success')

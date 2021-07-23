@@ -1,19 +1,18 @@
 # -*- coding: UTF-8 -*-
 import psycopg2
-from config import config
+from app import db_config
 import json
-import time
 
 def sum_unblendedcost(usageaccountid):
     select_sum = '''SELECT product_productname, SUM(lineitem_unblendedcost) 
-        FROM outputs 
+        FROM outputs
         WHERE lineitem_usageaccountid = '%s'
         GROUP BY product_productname;'''
 
     conn = None
     try:
         # read connection parameters
-        params = config()
+        params = db_config.db_suppliers()
 
         # connect to the PostgreSQL server
         conn = psycopg2.connect(**params)
@@ -26,7 +25,7 @@ def sum_unblendedcost(usageaccountid):
         return_json = {}
         for i,j in cur.fetchall():
             return_json[i] = j
-        return_json = json.dumps(return_json, indent=4)
+        # return_json = json.dumps(return_json, indent=4)
 
         # return result
         return return_json
@@ -52,7 +51,7 @@ def sum_usageamount(usageaccountid):
     conn = None
     try:
         # read connection parameters
-        params = config()
+        params = db_config.db_suppliers()
 
         # connect to the PostgreSQL server
         conn = psycopg2.connect(**params)
@@ -73,7 +72,7 @@ def sum_usageamount(usageaccountid):
             return_json[i] = sub_json
             a = i
             
-        return_json = json.dumps(return_json, indent=4)
+        # return_json = json.dumps(return_json, indent=4)
         return return_json
         
     # close the communication with the PostgreSQL
