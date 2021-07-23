@@ -11,20 +11,22 @@
     i.Get lineItem/UnblendedCost grouping by product/productname
     <br></br>
     <label>lineitem/usageaccountid</label><br>
-    <input type="text" id="uid_cost" value="147878817734"><br>
+    <input type="text" id="uid_cost" value="147878817734">
+    <input type="submit" onclick="submit_cost()"><br>
     <br>
     <br>
     ii.Get daily lineItem/UsageAmount grouping by product/productname
     <br></br>
     <label>lineitem/usageaccountid</label><br>
-    <input type="text" id="uid_amount" value="147878817734"><br>
+    <input type="text" id="uid_amount" value="147878817734">
 
-    <input type="submit" onclick="submit()"><br>
+    <input type="submit" onclick="submit_amount()"><br>
 
-    <p>預測結果:<span id="resultText"></span></p>
+    </br>
+    <span id="cost_output"></span>
+    <span id="resultcost"></span>
+    <span id="amount_output"></span>
+    <span id="resultamount"></span>
 
-
-
-    
 </body>
 </html>
