@@ -1,5 +1,5 @@
 import psycopg2
-from model.config import config
+from db_config import config
 
 def connect():
     """ Connect to the PostgreSQL database server """
@@ -61,6 +61,15 @@ def create_tables():
             DELIMITER ','
             CSV HEADER''')
         print('copy success')
+
+        # create index
+        cur.execute('''
+            CREATE INDEX pid_asc ON outputs(bill_payeraccountid ASC);
+        ''')
+
+        cur.execute('''
+            CREATE INDEX uid_asc ON outputs(lineitem_usageaccountid ASC);
+        ''')
         # close communication with the PostgreSQL database server
         cur.close()
         # commit the changes

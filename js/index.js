@@ -25,7 +25,7 @@ function submit_cost(){
     document.getElementById('cost_output').innerHTML=
     'Usage Account ID：' + uid_cost
 
-    postData('http://192.168.39.158:3000/cost', data)
+    postData('http://127.0.0.1:8080/cost', data)
     .then(data=>{
         console.log(JSON.stringify(data, null, '\t'));
 
@@ -45,7 +45,7 @@ function submit_amount(){
     document.getElementById('amount_output').innerHTML=
     'Usage Account ID：' + uid_amount
 
-    postData('http://192.168.39.158:3000/amount', data)
+    postData('http://127.0.0.1:8080/amount', data)
     .then(data=>{
         console.log(JSON.stringify(data, null, '\t'));
 
@@ -65,8 +65,8 @@ function list_uid(){
     }
     document.getElementById('payerid').innerHTML=
     'Payer Account ID：' + pid_uid
-
-    postData('http://192.168.39.158:3000/uid', data)
+    
+    postData('http://127.0.0.1:8080/uid', data)
     .then(data=>{
         console.log(JSON.stringify(data, null, '\t'));
 
@@ -86,7 +86,7 @@ function submit_count(){
     document.getElementById('count_output').innerHTML=
     'Usage Account ID：' + uid_count
 
-    postData('http://192.168.39.158:3000/count', data)
+    postData('http://127.0.0.1:8080/count', data)
     .then(data=>{
         console.log(JSON.stringify(data, null, '\t'));
 

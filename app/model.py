@@ -12,7 +12,7 @@ def sum_unblendedcost(usageaccountid):
     conn = None
     try:
         # read connection parameters
-        params = db_config.db_suppliers()
+        params = db_config.config()
 
         # connect to the PostgreSQL server
         conn = psycopg2.connect(**params)
@@ -50,7 +50,7 @@ def sum_usageamount(usageaccountid):
     conn = None
     try:
         # read connection parameters
-        params = db_config.db_suppliers()
+        params = db_config.config()
 
         # connect to the PostgreSQL server
         conn = psycopg2.connect(**params)
@@ -85,12 +85,12 @@ def sum_usageamount(usageaccountid):
             print('Database connection closed.')
 
 def list_uid(pid):
-    select_uid = '''SELECT lineitem_usageaccountid FROM outputs WHERE bill_payeraccountid='%s' GROUP BY bill_payeraccountid,lineitem_usageaccountid;'''
+    select_uid = '''SELECT lineitem_usageaccountid FROM outputs WHERE bill_payeraccountid='829432956742' GROUP BY bill_payeraccountid,lineitem_usageaccountid;'''
 
     conn = None
     try:
         # read connection parameters
-        params = db_config.db_suppliers()
+        params = db_config.config()
 
         # connect to the PostgreSQL server
         conn = psycopg2.connect(**params)
@@ -101,7 +101,7 @@ def list_uid(pid):
         cur.execute(select_uid, (pid,))
         return_json = {}
         for ind,i in enumerate(cur.fetchall()):
-            return_json[ind] = i[0]
+            return_json[ind+1] = i[0]
             
         return return_json
         
@@ -125,7 +125,7 @@ def sum_usagecount(usageaccountid):
     conn = None
     try:
         # read connection parameters
-        params = db_config.db_suppliers()
+        params = db_config.config()
 
         # connect to the PostgreSQL server
         conn = psycopg2.connect(**params)
