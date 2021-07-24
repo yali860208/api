@@ -20,10 +20,10 @@ function submit_cost(){
     const uid_cost = document.getElementById('uid_cost').value;
 
     const data = {
-        'uid_cost': uid_cost,
+        'uid_cost': uid_cost
     }
     document.getElementById('cost_output').innerHTML=
-    'Usage Account ID：' + uid_cost + '<br>Unblended Cost:'
+    'Usage Account ID：' + uid_cost
 
     postData('http://192.168.39.158:3000/cost', data)
     .then(data=>{
@@ -40,10 +40,10 @@ function submit_amount(){
     const uid_amount = document.getElementById('uid_amount').value;
 
     const data = {
-        'uid_amount': uid_amount,
+        'uid_amount': uid_amount
     }
     document.getElementById('amount_output').innerHTML=
-    'Usage Account ID：' + uid_amount + '<br>Usage Amount:'
+    'Usage Account ID：' + uid_amount
 
     postData('http://192.168.39.158:3000/amount', data)
     .then(data=>{
@@ -52,6 +52,47 @@ function submit_amount(){
         var myamount = JSON.stringify(data, null, '\t');
         document.getElementById('resultamount').innerHTML=
         '<pre>' + myamount + '</pre>';
+    })
+
+}
+
+function list_uid(){
+    
+    const pid_uid = document.getElementById('pid_uid').value;
+
+    const data = {
+        'pid_uid': pid_uid
+    }
+    document.getElementById('payerid').innerHTML=
+    'Payer Account ID：' + pid_uid
+
+    postData('http://192.168.39.158:3000/uid', data)
+    .then(data=>{
+        console.log(JSON.stringify(data, null, '\t'));
+
+        var myuid = JSON.stringify(data, null, '\t');
+        document.getElementById('resultid').innerHTML=
+        '<pre>' + myuid + '</pre>';
+    })
+
+}
+
+function submit_count(){
+    const uid_count = document.getElementById('uid_count').value;
+
+    const data = {
+        'uid_count': uid_count
+    }
+    document.getElementById('count_output').innerHTML=
+    'Usage Account ID：' + uid_count
+
+    postData('http://192.168.39.158:3000/count', data)
+    .then(data=>{
+        console.log(JSON.stringify(data, null, '\t'));
+
+        var mycount = JSON.stringify(data, null, '\t');
+        document.getElementById('resultcount').innerHTML=
+        '<pre>' + mycount + '</pre>';
     })
 
 }

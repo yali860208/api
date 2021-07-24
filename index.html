@@ -8,25 +8,53 @@
 </head>
 <body>
     <script src="./js/index.js"></script>
+
+    0.Get lineitem/usageaccountid
+    <br></br>
+    <label>bill/payeraccountid</label><br>
+    <input type="text" id="pid_uid" value="829432956742">
+    <button onclick="list_uid()">submit</button>
+    <br>
+    <br>
     i.Get lineItem/UnblendedCost grouping by product/productname
     <br></br>
     <label>lineitem/usageaccountid</label><br>
     <input type="text" id="uid_cost" value="147878817734">
-    <input type="submit" onclick="submit_cost()"><br>
+    <button onclick="submit_cost()">submit</button>
     <br>
     <br>
+    
     ii.Get daily lineItem/UsageAmount grouping by product/productname
     <br></br>
     <label>lineitem/usageaccountid</label><br>
     <input type="text" id="uid_amount" value="147878817734">
+    <button onclick="submit_amount()">submit</button>
 
-    <input type="submit" onclick="submit_amount()"><br>
+    <br>
+    <br>
+    
+    iii.Get use times grouping by product/productname
+    <br></br>
+    <label>lineitem/usageaccountid</label><br>
+    <input type="text" id="uid_count" value="147878817734">
+    <button onclick="submit_count()">submit</button>
 
     </br>
-    <span id="cost_output"></span>
+    <span id="payerid" style="color:blue"></span><br>
+    <p>Usage Account ID:</p>
+    <span id="resultid"></span>
+    <hr>
+    <span id="cost_output" style="color:blue"></span><br>
+    <p>Unblended Cost:</p>
     <span id="resultcost"></span>
-    <span id="amount_output"></span>
+    <hr>
+    <span id="amount_output" style="color:blue"></span><br>
+    <p>Usage Amount:</p>
     <span id="resultamount"></span>
+    <hr>
+    <span id="count_output" style="color:blue"></span><br>
+    <p>Usage count:</p>
+    <span id="resultcount"></span>
 
 </body>
 </html>

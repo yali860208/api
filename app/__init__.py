@@ -39,6 +39,19 @@ def usageaccountid_to_usageamount():
     result = model.sum_usageamount(int(input_id['uid_amount']))
     return result
 
+@app.route('/uid', methods=['POST'])
+def list_usageaccountid():
+    input_id = request.get_json()
+    result = model.list_uid(int(input_id['pid_uid']))
+    return result
+
+@app.route('/count', methods=['POST'])
+def usageaccountid_to_usagecount():
+    # 取得前端傳過來的數值
+    input_id = request.get_json()
+    result = model.sum_usagecount(int(input_id['uid_count']))
+    return result
+
 
 if __name__ == '__main__':
     import os

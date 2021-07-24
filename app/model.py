@@ -25,7 +25,6 @@ def sum_unblendedcost(usageaccountid):
         return_json = {}
         for i,j in cur.fetchall():
             return_json[i] = j
-        # return_json = json.dumps(return_json, indent=4)
 
         # return result
         return return_json
@@ -72,7 +71,74 @@ def sum_usageamount(usageaccountid):
             return_json[i] = sub_json
             a = i
             
-        # return_json = json.dumps(return_json, indent=4)
+        return return_json
+        
+    # close the communication with the PostgreSQL
+        cur.close()
+
+        
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
+    finally:
+        if conn is not None:
+            conn.close()
+            print('Database connection closed.')
+
+def list_uid(pid):
+    select_uid = '''SELECT lineitem_usageaccountid FROM outputs WHERE bill_payeraccountid='%s' GROUP BY bill_payeraccountid,lineitem_usageaccountid;'''
+
+    conn = None
+    try:
+        # read connection parameters
+        params = db_config.db_suppliers()
+
+        # connect to the PostgreSQL server
+        conn = psycopg2.connect(**params)
+        
+        # create a cursor
+        cur = conn.cursor()
+
+        cur.execute(select_uid, (pid,))
+        return_json = {}
+        for ind,i in enumerate(cur.fetchall()):
+            return_json[ind] = i[0]
+            
+        return return_json
+        
+    # close the communication with the PostgreSQL
+        cur.close()
+
+        
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
+    finally:
+        if conn is not None:
+            conn.close()
+            print('Database connection closed.')
+
+def sum_usagecount(usageaccountid):
+    select_sum = '''SELECT product_productname, 
+        COUNT(product_productname) FROM outputs  
+        WHERE lineitem_usageaccountid='%s'
+         GROUP BY product_productname;'''
+
+    conn = None
+    try:
+        # read connection parameters
+        params = db_config.db_suppliers()
+
+        # connect to the PostgreSQL server
+        conn = psycopg2.connect(**params)
+        
+        # create a cursor
+        cur = conn.cursor()
+        
+        cur.execute(select_sum, (usageaccountid,))
+
+        return_json = {}
+        for i,j in cur.fetchall():
+            return_json[i] = j
+            
         return return_json
         
     # close the communication with the PostgreSQL
