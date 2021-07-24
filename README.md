@@ -90,16 +90,18 @@
 ## DB schema
 ![](https://i.imgur.com/0bGDaVL.png)
 
-- create with index 執行時間比較
+## create with index
+reduce the execution time
+
 [參考資料](https://dataschool.com/sql-optimization/how-indexing-works/)
   - 功能 2 不使用 index
-  ![](https://i.imgur.com/AhabFon.png)
-    功能 2 使用 index
-  ![](https://i.imgur.com/hcUppWG.png)
+    - ![](https://i.imgur.com/AhabFon.png)
+  - 功能 2 使用 index
+    - ![](https://i.imgur.com/hcUppWG.png)
   - 功能 3 不使用 index
-  ![](https://i.imgur.com/vmgKN3Y.png)
-    功能 3 使用 index
-  ![](https://i.imgur.com/HfUkoxh.png)
+    - ![](https://i.imgur.com/vmgKN3Y.png)
+  - 功能 3 使用 index
+    - ![](https://i.imgur.com/HfUkoxh.png)
 
 
      
