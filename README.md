@@ -2,7 +2,14 @@
 
 ## Contents
 
-[TOC]
+- [簡介](#簡介)
+- [軟體](#軟體)
+- [clone 與安裝相依套件](#clone-與安裝相依套件)
+- [執行步驟](#執行步驟)
+- [網址](#網址)
+- [API spec](#API-spec)
+- [DB schema](#DB-schema)
+- [執行圖](#執行圖)
 
 ## 簡介
 
@@ -10,10 +17,8 @@
 
 ## 軟體
 - Visual Studio Code
-- Sublime Text 3
 - PostgreSQL 13
 - Git
-- Heroku
 
 ## clone 與安裝相依套件
 - 請在 `Console` 輸入下方指令
