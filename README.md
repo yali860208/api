@@ -28,7 +28,7 @@
   ```
   - 切換路徑到專案資料夾
   ```
-  cd ./api
+  cd ./api-main
   ``` 
   - 安裝相關套件
   ``` 
@@ -43,10 +43,10 @@
 請在 `Console` 輸入下方指令
 - 上傳資料到 PostgreSQL
   1. 到 PostgreSQL 創建一個資料庫
-  2. 更改`api/app/database.ini`內的基本資料
+  2. 更改`api-main/app/database.ini`內的基本資料
   3. 
       ```
-      cd ./api/app
+      cd ./api-main/app
       ```
       ```
       python connect.py
@@ -57,7 +57,7 @@
       ![](https://i.imgur.com/s9KRGbWm.png)
 - 啟動專案
   ```
-  cd ./api
+  cd ./api-main
   ```
   ```
   python run.py
