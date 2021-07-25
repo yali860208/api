@@ -55,7 +55,7 @@
       若出現此 Error
       ![](https://i.imgur.com/MQYCr5J.png)
       - data.csv右鍵>內容>安全性>編輯>新增>Everyone>勾選完全控制>套用>確定 ([參考資料](https://blog.csdn.net/yufenghyc/article/details/58224641))
-      ![](https://i.imgur.com/s9KRGbWm.png)
+        - ![](https://i.imgur.com/s9KRGbWm.png)
 - 啟動專案
   ```
   cd ./api-main
