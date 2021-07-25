@@ -10,6 +10,7 @@
 - [API spec](#API-spec)
 - [DB schema](#DB-schema)
 - [執行圖](#執行圖)
+- [心得](#心得)
 
 ## 簡介
 
@@ -123,3 +124,14 @@ https://codertw.com/%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC/50603/
 ![](https://i.imgur.com/8zVAzhH.png)
 - 功能 3
 ![](https://i.imgur.com/31rTGwN.png)
+
+## 心得
+其實到資料庫連到 API 很快就完成了，大概花了總時間的 1/5 吧，也藉著這次學習機會，搞懂 PostgreSQL 和 Postman 的應用，複習了大學時代學習到的 sql 語法。
+最困難的是各種權限問題，不論是要將 CSV 檔 COPY 至資料庫，PORT 不同，將 API 連接到前端的 IP 問題。
+
+將 API 連接到前端的各種問題，曾想過直接部屬到 Heroku 上，但 Heroku Postgres 資料庫不提供 superuser 權限 ([參考資料](https://help.heroku.com/IV1DHMS2/can-i-get-superuser-privileges-or-create-a-superuser-in-heroku-postgres))...
+好不容易在本地端成功執行並跑出成果，隔一天竟然就不行了，深深懷念 6 月上 AWS 課程時幾乎每個人都可以靠一樣的步驟成功部屬一個網站。
+
+至於為什麼不直接用 AWS ，我 6 月上課時，跟著講師的步驟執行雖然有稍微帶過什麼步驟是做什麼，但對於整個流程和參數調整都還懵懵懂懂，擔心有些要調整的細節忘記需要調整。經歷過這次從無到有的過程，學到了很多原本就該有的基礎知識，也更懂整個流程怎麼運行，哪個參數會對哪個功能造成影響等等...
+
+感謝伊雲谷給我這個學習的機會，當然還有許多可以學習的空間。這一個星期不斷的吸收，想到什麼都可以直接試試看可不可行，其實是個很愉快的過程。知道自己有許多不足，還請麻煩給我一些建議和學指教，感謝。
